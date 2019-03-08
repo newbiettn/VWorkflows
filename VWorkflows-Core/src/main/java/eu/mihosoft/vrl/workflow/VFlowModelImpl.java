@@ -386,6 +386,22 @@ class VFlowModelImpl implements VFlowModel {
         return result;
     }
 
+    @Override
+    public VNode newNode(VNode copyNode){
+        ValueObject valObj = copyNode.getValueObject();
+        ObservableList<Connector>  inputs = copyNode.getInputs();
+        ObservableList<Connector>  outputs = copyNode.getOutputs();
+        VNode result = newNode(valObj);
+        valObj.setParent(result);
+        for (Connector input : inputs){
+            result.addInput(input.getType());
+        }
+        for (Connector output : outputs){
+            result.addOutput(output.getType());
+        }
+        return result;
+    }
+
 //    @Override
 //    public String getGlobalId() {
 //        return node.getGlobalId();

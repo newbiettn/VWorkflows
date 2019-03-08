@@ -49,6 +49,8 @@ public interface VFlowModel extends FlowModel, VNode {
 
     public VNode newNode();
 
+    public VNode newNode(VNode n);
+
     public ThruConnector addThruInput(String type);
 
     public ThruConnector addThruOutput(String type);

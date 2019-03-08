@@ -516,6 +516,11 @@ class VFlowImpl implements VFlow {
         return getModel().newNode();
     }
 
+    @Override
+    public VNode newNode(VNode n) {
+        return getModel().newNode(n);
+    }
+
     private List<VNodeSkin<VNode>> createNodeSkins(VNode n, List<SkinFactory<? extends ConnectionSkin, ? extends VNodeSkin>> skinFactories) {
         return createNodeSkins(n, skinFactories.toArray(new SkinFactory[skinFactories.size()]));
     }

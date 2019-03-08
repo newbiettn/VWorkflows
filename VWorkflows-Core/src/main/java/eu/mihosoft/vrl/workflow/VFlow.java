@@ -239,6 +239,14 @@ public interface VFlow {
     public VNode newNode();
 
     /**
+     * Adds a new node to this flow.
+     *
+     * @param n
+     * @return new node
+     */
+    public VNode newNode(VNode n);
+
+    /**
      * Adds a new subflow to this flow.
      *
      * @param obj value object that shall be used for the requested subflow
