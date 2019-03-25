@@ -76,7 +76,7 @@ public class FXNewConnectionSkin extends AbstractFXConnectionSkin {
     }
 
     protected void initSenderAndReceiver() {
-        receiverConnectorUI = new Circle(15);
+        receiverConnectorUI = new Circle(5);
         final VNode sender = getSender().getNode();
         final FXFlowNodeSkin senderSkin = (FXFlowNodeSkin) getController().
                 getNodeSkinLookup().getById(skinFactory, sender.getId());

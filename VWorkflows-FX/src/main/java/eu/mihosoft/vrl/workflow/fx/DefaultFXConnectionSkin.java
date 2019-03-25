@@ -54,6 +54,8 @@ import javafx.scene.shape.Circle;
 import jfxtras.labs.util.event.MouseControlUtil;
 
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -142,7 +144,7 @@ public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
 
     protected ContextMenu createContextMenu() {
         final ContextMenu contextMenu = new ContextMenu();
-        MenuItem removeITem = new MenuItem("Remove Connection");
+        MenuItem removeITem = new MenuItem("Remove Connection Now!");
         contextMenu.getItems().addAll(removeITem);
         removeITem.setOnAction((ActionEvent event) -> {
             controller.getConnections(type).remove(connection);
@@ -162,6 +164,8 @@ public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
 
     @Override
     protected void makeDraggable() {
+        Logger.getLogger(DefaultFXConnectionSkin.class.getName()).
+                log(Level.INFO, "makeDraggable");
         final DoubleBinding receiveXBinding = new DoubleBinding() {
             {
                 super.bind(getReceiverShape().getNode().layoutXProperty(),
@@ -364,6 +368,8 @@ public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
     @Override
     public void add() {
         NodeUtil.addToParent(getParent(), connectionPath);
+        NodeUtil.addToParent(getParent(), connectionText);
+        NodeUtil.addToParent(getParent(), invisibleCurve);
 //        VFXNodeUtils.addToParent(getParent(), startConnector);
         NodeUtil.addToParent(getParent(), getReceiverUI());
 

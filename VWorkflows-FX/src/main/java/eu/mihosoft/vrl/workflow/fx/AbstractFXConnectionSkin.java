@@ -36,16 +36,20 @@ package eu.mihosoft.vrl.workflow.fx;
 import eu.mihosoft.vrl.workflow.Connection;
 import eu.mihosoft.vrl.workflow.Connector;
 import eu.mihosoft.vrl.workflow.VFlow;
+import javafx.animation.PathTransition;
 import javafx.beans.binding.DoubleBinding;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.CubicCurveTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
-import javafx.scene.shape.Shape;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.*;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -62,6 +66,8 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
 
     // -- mutable fields
     protected Path connectionPath;
+    protected Text connectionText;
+    protected CubicCurve invisibleCurve;
     protected Circle receiverConnectorUI;
     protected VFlow controller;
     protected ConnectorShape senderShape;
@@ -211,6 +217,8 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
         MoveTo moveTo = new MoveTo();
         CubicCurveTo curveTo = new CubicCurveTo();
         connectionPath = new Path(moveTo, curveTo);
+        Logger.getLogger(AbstractFXConnectionSkin.class.getName()).
+                log(Level.INFO, "initConnnectionPath");
 
         moveTo.xProperty().bind(startXBinding);
         moveTo.yProperty().bind(startYBinding);
@@ -221,6 +229,78 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
         curveTo.controlY2Property().bind(controlY2Binding);
         curveTo.xProperty().bind(endXBinding);
         curveTo.yProperty().bind(endYBinding);
+
+        /* Added */
+        invisibleCurve = new CubicCurve();
+        invisibleCurve.setStartX(moveTo.getX());
+        invisibleCurve.setStartY(moveTo.getY());
+        invisibleCurve.setControlX1(curveTo.getControlX1());
+        invisibleCurve.setControlY1(curveTo.getControlY1());
+        invisibleCurve.setControlX2(curveTo.getControlX2());
+        invisibleCurve.setControlY2(curveTo.getControlY2());
+        invisibleCurve.setEndX(curveTo.getX());
+        invisibleCurve.setEndY(curveTo.getY());
+        invisibleCurve.setStroke(Color.FORESTGREEN);
+        invisibleCurve.setStrokeWidth(0);
+        invisibleCurve.setStrokeLineCap(StrokeLineCap.ROUND);
+        invisibleCurve.setFill(null);
+        invisibleCurve.startXProperty().bind(moveTo.xProperty());
+        invisibleCurve.startYProperty().bind(moveTo.yProperty());
+        invisibleCurve.controlX1Property().bind(curveTo.controlX1Property());
+        invisibleCurve.controlX2Property().bind(curveTo.controlX2Property());
+        invisibleCurve.controlY1Property().bind(curveTo.controlY1Property());
+        invisibleCurve.controlY2Property().bind(curveTo.controlY2Property());
+        invisibleCurve.endXProperty().bind(curveTo.xProperty());
+        invisibleCurve.endYProperty().bind(curveTo.yProperty());
+
+        DoubleBinding xBinding = new DoubleBinding() {
+            DoubleProperty endX = invisibleCurve.endXProperty();
+            DoubleProperty startX = invisibleCurve.startXProperty();
+            {
+                this.bind(endX, startX);
+            }
+            @Override
+            protected double computeValue() {
+                double x = 0;
+                PathTransition pt = new PathTransition(Duration.ONE, invisibleCurve, new Circle());
+                pt.playFromStart(); // force initialization
+                pt.stop();
+                for (double frac = 0.0; frac <= 1.0; frac += 0.05) {
+                    if (frac == 0.35) {
+                        pt.interpolate(frac);
+                        x = pt.getNode().getTranslateX();
+                    }
+                }
+                return x-10;
+            }
+        };
+        DoubleBinding yBinding = new DoubleBinding() {
+            DoubleProperty endY = invisibleCurve.endYProperty();
+            DoubleProperty startY = invisibleCurve.startYProperty();
+            {
+                this.bind(endY, startY);
+            }
+            @Override
+            protected double computeValue() {
+                double y = 0;
+                PathTransition pt = new PathTransition(Duration.ONE, invisibleCurve, new Circle());
+                pt.playFromStart(); // force initialization
+                pt.stop();
+                for (double frac = 0.0; frac <= 1.0; frac += 0.05) {
+                    if (frac == 0.35) {
+                        pt.interpolate(frac);
+                        y = pt.getNode().getTranslateY();
+                    }
+                }
+                return y;
+            }
+        };
+        connectionText = new Text("A connection name");
+        connectionText.setX(200);
+        connectionText.setY(200);
+        connectionText.xProperty().bind(xBinding);
+        connectionText.yProperty().bind(yBinding);
+        connectionText.setFill(Color.WHITE);
     }
 
     protected void initConnectionListener() {

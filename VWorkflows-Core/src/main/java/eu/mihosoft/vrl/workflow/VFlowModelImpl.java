@@ -388,11 +388,11 @@ class VFlowModelImpl implements VFlowModel {
 
     @Override
     public VNode newNode(VNode copyNode){
-        ValueObject valObj = copyNode.getValueObject();
+        VNode result = null;
+        result = newNode(copyNode.getValueObject());
         ObservableList<Connector>  inputs = copyNode.getInputs();
         ObservableList<Connector>  outputs = copyNode.getOutputs();
-        VNode result = newNode(valObj);
-        valObj.setParent(result);
+
         for (Connector input : inputs){
             result.addInput(input.getType());
         }
