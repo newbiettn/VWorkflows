@@ -129,23 +129,23 @@ class VFlowModelImpl implements VFlowModel {
     }
 
     @Override
-    public ConnectionResult tryConnect(VNode s, VNode r, String flowType) {
-        return flow.tryConnect(s, r, flowType);
+    public ConnectionResult tryConnect(VNode s, VNode r, String flowType, String name) {
+        return flow.tryConnect(s, r, flowType, name);
     }
 
     @Override
-    public ConnectionResult connect(VNode s, VNode r, String flowType) {
-        return flow.connect(s, r, flowType);
+    public ConnectionResult connect(VNode s, VNode r, String flowType, String name) {
+        return flow.connect(s, r, flowType, name);
     }
 
     @Override
-    public ConnectionResult tryConnect(Connector s, Connector r) {
-        return flow.tryConnect(s, r);
+    public ConnectionResult tryConnect(Connector s, Connector r, String name) {
+        return flow.tryConnect(s, r, name);
     }
 
     @Override
-    public ConnectionResult connect(Connector s, Connector r) {
-        return flow.connect(s, r);
+    public ConnectionResult connect(Connector s, Connector r, String name) {
+        return flow.connect(s, r, name);
     }
 
     @Override

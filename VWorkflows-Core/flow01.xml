@@ -21,7 +21,7 @@
     <connection>
       <id>0</id>
       <senderId>ROOT:0:c:5</senderId>
-      <receiverId>ROOT:1:c:10</receiverId>
+      <receiverId>ROOT:1:c:8</receiverId>
       <type>data</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
@@ -31,8 +31,19 @@
     </connection>
     <connection>
       <id>0</id>
-      <senderId>ROOT:0:c:5</senderId>
-      <receiverId>ROOT:1:c:12</receiverId>
+      <senderId>ROOT:0:c:7</senderId>
+      <receiverId>ROOT:1:c:8</receiverId>
+      <type>data</type>
+      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
+        <map class="com.sun.javafx.collections.ObservableMapWrapper">
+          <backingMap/>
+        </map>
+      </vReq>
+    </connection>
+    <connection>
+      <id>0</id>
+      <senderId>ROOT:0:c:7</senderId>
+      <receiverId>ROOT:1:c:10</receiverId>
       <type>data</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
@@ -64,9 +75,9 @@
     </connection>
     <connection>
       <id>0</id>
-      <senderId>ROOT:0:c:9</senderId>
-      <receiverId>ROOT:1:c:12</receiverId>
-      <type>data</type>
+      <senderId>ROOT:0:c:1</senderId>
+      <receiverId>ROOT:1:c:0</receiverId>
+      <type>control</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
           <backingMap/>
@@ -75,9 +86,9 @@
     </connection>
     <connection>
       <id>0</id>
-      <senderId>ROOT:1:c:7</senderId>
-      <receiverId>ROOT:2:c:8</receiverId>
-      <type>data</type>
+      <senderId>ROOT:0:c:1</senderId>
+      <receiverId>ROOT:1:c:2</receiverId>
+      <type>control</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
           <backingMap/>
@@ -86,31 +97,9 @@
     </connection>
     <connection>
       <id>0</id>
-      <senderId>ROOT:1:c:11</senderId>
-      <receiverId>ROOT:2:c:8</receiverId>
-      <type>data</type>
-      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
-        <map class="com.sun.javafx.collections.ObservableMapWrapper">
-          <backingMap/>
-        </map>
-      </vReq>
-    </connection>
-    <connection>
-      <id>0</id>
-      <senderId>ROOT:1:c:13</senderId>
-      <receiverId>ROOT:2:c:6</receiverId>
-      <type>data</type>
-      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
-        <map class="com.sun.javafx.collections.ObservableMapWrapper">
-          <backingMap/>
-        </map>
-      </vReq>
-    </connection>
-    <connection>
-      <id>0</id>
-      <senderId>ROOT:1:c:13</senderId>
-      <receiverId>ROOT:2:c:8</receiverId>
-      <type>data</type>
+      <senderId>ROOT:0:c:1</senderId>
+      <receiverId>ROOT:1:c:4</receiverId>
+      <type>control</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
           <backingMap/>
@@ -130,8 +119,8 @@
     </connection>
     <connection>
       <id>0</id>
-      <senderId>ROOT:1:c:1</senderId>
-      <receiverId>ROOT:2:c:0</receiverId>
+      <senderId>ROOT:0:c:3</senderId>
+      <receiverId>ROOT:1:c:4</receiverId>
       <type>control</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
@@ -141,31 +130,9 @@
     </connection>
     <connection>
       <id>0</id>
-      <senderId>ROOT:1:c:1</senderId>
-      <receiverId>ROOT:2:c:2</receiverId>
-      <type>control</type>
-      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
-        <map class="com.sun.javafx.collections.ObservableMapWrapper">
-          <backingMap/>
-        </map>
-      </vReq>
-    </connection>
-    <connection>
-      <id>0</id>
-      <senderId>ROOT:1:c:1</senderId>
-      <receiverId>ROOT:2:c:4</receiverId>
-      <type>control</type>
-      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
-        <map class="com.sun.javafx.collections.ObservableMapWrapper">
-          <backingMap/>
-        </map>
-      </vReq>
-    </connection>
-    <connection>
-      <id>0</id>
-      <senderId>ROOT:1:c:3</senderId>
-      <receiverId>ROOT:2:c:0</receiverId>
-      <type>control</type>
+      <senderId>ROOT:0:c:11</senderId>
+      <receiverId>ROOT:1:c:12</receiverId>
+      <type>event</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
           <backingMap/>
@@ -196,8 +163,8 @@
     </connection>
     <connection>
       <id>0</id>
-      <senderId>ROOT:0:c:11</senderId>
-      <receiverId>ROOT:1:c:18</receiverId>
+      <senderId>ROOT:0:c:13</senderId>
+      <receiverId>ROOT:1:c:12</receiverId>
       <type>event</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
@@ -218,8 +185,8 @@
     </connection>
     <connection>
       <id>0</id>
-      <senderId>ROOT:0:c:13</senderId>
-      <receiverId>ROOT:1:c:18</receiverId>
+      <senderId>ROOT:0:c:15</senderId>
+      <receiverId>ROOT:1:c:12</receiverId>
       <type>event</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
@@ -231,17 +198,6 @@
       <id>0</id>
       <senderId>ROOT:0:c:15</senderId>
       <receiverId>ROOT:1:c:14</receiverId>
-      <type>event</type>
-      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
-        <map class="com.sun.javafx.collections.ObservableMapWrapper">
-          <backingMap/>
-        </map>
-      </vReq>
-    </connection>
-    <connection>
-      <id>0</id>
-      <senderId>ROOT:0:c:15</senderId>
-      <receiverId>ROOT:1:c:18</receiverId>
       <type>event</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
@@ -252,7 +208,7 @@
     <connection>
       <id>0</id>
       <senderId>ROOT:0:c:17</senderId>
-      <receiverId>ROOT:1:c:14</receiverId>
+      <receiverId>ROOT:1:c:12</receiverId>
       <type>event</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
@@ -262,41 +218,8 @@
     </connection>
     <connection>
       <id>0</id>
-      <senderId>ROOT:1:c:15</senderId>
-      <receiverId>ROOT:2:c:10</receiverId>
-      <type>event</type>
-      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
-        <map class="com.sun.javafx.collections.ObservableMapWrapper">
-          <backingMap/>
-        </map>
-      </vReq>
-    </connection>
-    <connection>
-      <id>0</id>
-      <senderId>ROOT:1:c:15</senderId>
-      <receiverId>ROOT:2:c:14</receiverId>
-      <type>event</type>
-      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
-        <map class="com.sun.javafx.collections.ObservableMapWrapper">
-          <backingMap/>
-        </map>
-      </vReq>
-    </connection>
-    <connection>
-      <id>0</id>
-      <senderId>ROOT:1:c:19</senderId>
-      <receiverId>ROOT:2:c:10</receiverId>
-      <type>event</type>
-      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
-        <map class="com.sun.javafx.collections.ObservableMapWrapper">
-          <backingMap/>
-        </map>
-      </vReq>
-    </connection>
-    <connection>
-      <id>0</id>
-      <senderId>ROOT:1:c:19</senderId>
-      <receiverId>ROOT:2:c:12</receiverId>
+      <senderId>ROOT:0:c:17</senderId>
+      <receiverId>ROOT:1:c:16</receiverId>
       <type>event</type>
       <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
         <map class="com.sun.javafx.collections.ObservableMapWrapper">
@@ -585,7 +508,7 @@
           <maxNumConnections>2147483647</maxNumConnections>
         </connector>
         <connector>
-          <type>data</type>
+          <type>event</type>
           <localId>12</localId>
           <input>true</input>
           <output>false</output>
@@ -593,7 +516,7 @@
           <maxNumConnections>2147483647</maxNumConnections>
         </connector>
         <connector>
-          <type>data</type>
+          <type>event</type>
           <localId>13</localId>
           <input>false</input>
           <output>true</output>
@@ -627,171 +550,6 @@
         <connector>
           <type>event</type>
           <localId>17</localId>
-          <input>false</input>
-          <output>true</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>event</type>
-          <localId>18</localId>
-          <input>true</input>
-          <output>false</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>event</type>
-          <localId>19</localId>
-          <input>false</input>
-          <output>true</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-      </connectors>
-      <mainInputs/>
-      <mainOutputs/>
-    </node>
-    <node>
-      <x>0.0</x>
-      <y>0.0</y>
-      <width>200.0</width>
-      <height>150.0</height>
-      <title>Node</title>
-      <valueObject>
-        <parentId>ROOT:2</parentId>
-        <storage/>
-      </valueObject>
-      <vReq class="eu.mihosoft.vrl.workflow.VisualizationRequestImpl">
-        <map class="com.sun.javafx.collections.ObservableMapWrapper">
-          <backingMap/>
-        </map>
-      </vReq>
-      <id>ROOT:2</id>
-      <connectors>
-        <connector>
-          <type>control</type>
-          <localId>0</localId>
-          <input>true</input>
-          <output>false</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>control</type>
-          <localId>1</localId>
-          <input>false</input>
-          <output>true</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>control</type>
-          <localId>2</localId>
-          <input>true</input>
-          <output>false</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>control</type>
-          <localId>3</localId>
-          <input>false</input>
-          <output>true</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>control</type>
-          <localId>4</localId>
-          <input>true</input>
-          <output>false</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>control</type>
-          <localId>5</localId>
-          <input>false</input>
-          <output>true</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>data</type>
-          <localId>6</localId>
-          <input>true</input>
-          <output>false</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>data</type>
-          <localId>7</localId>
-          <input>false</input>
-          <output>true</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>data</type>
-          <localId>8</localId>
-          <input>true</input>
-          <output>false</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>data</type>
-          <localId>9</localId>
-          <input>false</input>
-          <output>true</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>event</type>
-          <localId>10</localId>
-          <input>true</input>
-          <output>false</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>event</type>
-          <localId>11</localId>
-          <input>false</input>
-          <output>true</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>event</type>
-          <localId>12</localId>
-          <input>true</input>
-          <output>false</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>event</type>
-          <localId>13</localId>
-          <input>false</input>
-          <output>true</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>event</type>
-          <localId>14</localId>
-          <input>true</input>
-          <output>false</output>
-          <passthru>false</passthru>
-          <maxNumConnections>2147483647</maxNumConnections>
-        </connector>
-        <connector>
-          <type>event</type>
-          <localId>15</localId>
           <input>false</input>
           <output>true</output>
           <passthru>false</passthru>

@@ -97,7 +97,7 @@ public class FlowModelImpl implements FlowModel {
     }
 
     @Override
-    public ConnectionResult tryConnect(VNode s, VNode r, String type) {
+    public ConnectionResult tryConnect(VNode s, VNode r, String type, String name) {
 
         ValueObject senderValObj = new NoDefaultConnectorValueObject(s);
         ValueObject receiverValObj = new NoDefaultConnectorValueObject(r);
@@ -117,9 +117,9 @@ public class FlowModelImpl implements FlowModel {
     }
 
     @Override
-    public ConnectionResult connect(VNode s, VNode r, String type) {
+    public ConnectionResult connect(VNode s, VNode r, String type, String name) {
 
-        ConnectionResult result = tryConnect(s, r, type);
+        ConnectionResult result = tryConnect(s, r, type, name);
 
         if (!result.getStatus().isCompatible()) {
             return result;
@@ -137,7 +137,7 @@ public class FlowModelImpl implements FlowModel {
         }
 
 //        System.out.println("ADD: " + sender + ", " + receiver);
-        Connection connection = getConnections(type).add(sender, receiver);
+        Connection connection = getConnections(type).add(sender, receiver, name);
         
         
 
@@ -145,7 +145,7 @@ public class FlowModelImpl implements FlowModel {
     }
 
     @Override
-    public ConnectionResult tryConnect(Connector s, Connector r) {
+    public ConnectionResult tryConnect(Connector s, Connector r, String name) {
         CompatibilityResult result = r.getValueObject().
                 compatible(s.getValueObject(), s.getType());
 
@@ -153,15 +153,15 @@ public class FlowModelImpl implements FlowModel {
     }
 
     @Override
-    public ConnectionResult connect(Connector s, Connector r) {
+    public ConnectionResult connect(Connector s, Connector r, String name) {
 
-        ConnectionResult result = tryConnect(s, r);
+        ConnectionResult result = tryConnect(s, r, name);
 
         if (!result.getStatus().isCompatible()) {
             return result;
         }
 
-        Connection connection = getConnections(s.getType()).add(s, r);
+        Connection connection = getConnections(s.getType()).add(s, r, name);
 
         return new ConnectionResultImpl(result.getStatus(), connection);
     }

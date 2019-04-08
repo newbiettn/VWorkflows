@@ -63,7 +63,7 @@ import java.util.logging.Logger;
  */
 public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
 
-    private final Connection connection;
+    private Connection connection;
     private Node lastNode;
     private boolean receiverDraggingStarted = false;
     private MapChangeListener<String, Object> vReqLister;
@@ -79,6 +79,7 @@ public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
     protected void postInitialize() {
         initVReqListeners();
         initMouseEventHandler();
+        connection.setConnectionPath(connectionPath);
     }
 
     protected void initStyle() {
@@ -124,6 +125,7 @@ public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
                 connection.getSender().getId()));
         setReceiver(getController().getNodeLookup().getConnectorById(
                 connection.getReceiver().getId()));
+        setName("a connection name");
     }
 
     protected void initMouseEventHandler() {
@@ -236,7 +238,7 @@ public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
 
                 ConnectionResult connResult
                         = getSender().getNode().getFlow().tryConnect(
-                                getSender(), receiver);
+                                getSender(), receiver, getName());
 
                 Connector receiverConnector = selConnector.getConnector();
                 boolean isSameConnection = receiverConnector.equals(getReceiver());

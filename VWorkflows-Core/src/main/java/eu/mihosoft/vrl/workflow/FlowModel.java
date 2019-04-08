@@ -55,7 +55,7 @@ interface FlowModel extends Model, VisibleState {
      * @param flowType connection type
      * @return connection result
      */
-    public ConnectionResult tryConnect(VNode s, VNode r, String flowType);
+    public ConnectionResult tryConnect(VNode s, VNode r, String flowType, String name);
 
     /**
      * Requests the specified connection. If the specified connection can be
@@ -66,7 +66,7 @@ interface FlowModel extends Model, VisibleState {
      * @param flowType connection type
      * @return connection result
      */
-    public ConnectionResult connect(VNode s, VNode r, String flowType);
+    public ConnectionResult connect(VNode s, VNode r, String flowType, String name);
 
     /**
      * Attempts to create the specified connection. This method never creates an
@@ -77,7 +77,7 @@ interface FlowModel extends Model, VisibleState {
      * @param r receiver connector
      * @return connection result
      */
-    public ConnectionResult tryConnect(Connector s, Connector r);
+    public ConnectionResult tryConnect(Connector s, Connector r, String name);
 
     /**
      * Requests the specified connection. If the specified connection can be
@@ -87,7 +87,7 @@ interface FlowModel extends Model, VisibleState {
      * @param r receiver node
      * @return connection result
      */
-    public ConnectionResult connect(Connector s, Connector r);
+    public ConnectionResult connect(Connector s, Connector r, String name);
 
     /**
      * Removes the specified node from this flow.

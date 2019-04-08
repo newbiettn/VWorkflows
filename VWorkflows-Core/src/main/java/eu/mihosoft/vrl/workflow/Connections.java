@@ -58,7 +58,7 @@ public interface Connections extends Model {
      * @param r receiver connector
      * @return connection that has been added
      */
-    public Connection add(Connector s, Connector r);
+    public Connection add(Connector s, Connector r, String name);
 
     /**
      * Adds the connection defined by the specified connectors.
@@ -69,7 +69,7 @@ public interface Connections extends Model {
      * @param vReq the visualization request of the connection
      * @return connection that has been added
      */
-    public Connection add(String id, Connector s, Connector r, VisualizationRequest vReq);
+    public Connection add(String id, Connector s, Connector r, VisualizationRequest vReq, String name);
 
     /**
      * Removes the specified connection from this collection

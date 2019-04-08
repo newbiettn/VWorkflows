@@ -76,7 +76,7 @@ public class FXNewConnectionSkin extends AbstractFXConnectionSkin {
     }
 
     protected void initSenderAndReceiver() {
-        receiverConnectorUI = new Circle(5);
+        receiverConnectorUI = new Circle(15);
         final VNode sender = getSender().getNode();
         final FXFlowNodeSkin senderSkin = (FXFlowNodeSkin) getController().
                 getNodeSkinLookup().getById(skinFactory, sender.getId());
@@ -147,10 +147,10 @@ public class FXNewConnectionSkin extends AbstractFXConnectionSkin {
                 if (getSender().isInput() && receiverConnectorModel.isOutput()) {
                     
                     connResult = flow.tryConnect(
-                            receiverConnectorModel, getSender());
+                            receiverConnectorModel, getSender(),  getName());
                 } else {
                     connResult = flow.tryConnect(
-                            getSender(), receiverConnectorModel);
+                            getSender(), receiverConnectorModel, getName());
                 }
                 
                 if (connResult.getStatus().isCompatible()) {
@@ -213,12 +213,12 @@ public class FXNewConnectionSkin extends AbstractFXConnectionSkin {
                 ConnectionResult connResult = null;
                 
                 if (getSender().isInput() && receiverConnector.isOutput()) {
-                    connResult = flow.connect(receiverConnector, getSender());
+                    connResult = flow.connect(receiverConnector, getSender(), getName());
                     connectionListener.
                             onCreateNewConnectionReverseReleased(connResult);
                     
                 } else {
-                    connResult = flow.connect(getSender(), receiverConnector);
+                    connResult = flow.connect(getSender(), receiverConnector, getName());
                     connectionListener.onCreateNewConnectionReleased(connResult);
                 }
                 

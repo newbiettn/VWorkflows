@@ -41,8 +41,10 @@ import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Text;
@@ -62,6 +64,17 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
     protected final ObjectProperty<Connector> receiverProperty = new SimpleObjectProperty<>();
     protected final ObjectProperty<Connection> modelProperty = new SimpleObjectProperty<>();
     protected final ObjectProperty<Parent> parentProperty = new SimpleObjectProperty<>();
+    protected final ObjectProperty<String> nameProperty = new SimpleObjectProperty<>();
+
+    public String getName() {
+        return nameProperty.get();
+    }
+
+    public void setName(String nameProperty) {
+        this.nameProperty.set(nameProperty);
+    }
+
+
     // -- properties
 
     // -- mutable fields
@@ -271,7 +284,7 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
                         x = pt.getNode().getTranslateX();
                     }
                 }
-                return x-10;
+                return x-30;
             }
         };
         DoubleBinding yBinding = new DoubleBinding() {
@@ -295,12 +308,12 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
                 return y;
             }
         };
-        connectionText = new Text("A connection name");
+        connectionText = new Text(nameProperty.getName());
         connectionText.setX(200);
         connectionText.setY(200);
         connectionText.xProperty().bind(xBinding);
         connectionText.yProperty().bind(yBinding);
-        connectionText.setFill(Color.WHITE);
+        connectionText.getStyleClass().add("connection-name");
     }
 
     protected void initConnectionListener() {
@@ -395,6 +408,8 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
     public void remove() {
         NodeUtil.removeFromParent(connectionPath);
         NodeUtil.removeFromParent(receiverConnectorUI);
+        NodeUtil.removeFromParent(connectionText);
+        NodeUtil.removeFromParent(invisibleCurve);
     }
 
     @Override
@@ -430,5 +445,15 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
     @Override
     public ConnectorShape getReceiverShape() {
         return receiverShape;
+    }
+
+    public Text getConnectionText(){
+        return this.connectionText;
+    }
+    public void setConnectionTextValue(String text){
+        connectionText.setText(text);
+    }
+    public void setEventHandlerForConnectionText(EventHandler<MouseEvent> event){
+        connectionText.addEventHandler(MouseEvent.MOUSE_CLICKED, event);
     }
 }

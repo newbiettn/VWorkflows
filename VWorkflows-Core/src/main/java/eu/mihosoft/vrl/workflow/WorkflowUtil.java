@@ -257,7 +257,7 @@ public class WorkflowUtil {
     public static List<ConnectionResult> connect(Connector s, Connector r) {
         List<ConnectionResult> result = new ArrayList<>();
         if (s.getNode().getFlow() == r.getNode().getFlow()) {
-            result.add(s.getNode().getFlow().connect(s, r));
+            result.add(s.getNode().getFlow().connect(s, r, "a connection name"));
         }
         
         return result;

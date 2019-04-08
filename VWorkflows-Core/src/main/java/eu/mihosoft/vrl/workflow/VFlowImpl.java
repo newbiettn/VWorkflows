@@ -417,52 +417,52 @@ class VFlowImpl implements VFlow {
 
     @Override
     public ConnectionResult tryConnect(Connector s, Connector r) {
-        return getModel().tryConnect(s, r);
+        return getModel().tryConnect(s, r, "a connection name");
     }
 
     @Override
     public ConnectionResult connect(Connector s, Connector r) {
-        return getModel().connect(s, r);
+        return getModel().connect(s, r, "a connection name");
     }
 
     @Override
     public ConnectionResult tryConnect(VNode s, VNode r, String type) {
-        return getModel().tryConnect(s, r, type);
+        return getModel().tryConnect(s, r, type, "a connection name");
     }
 
     @Override
     public ConnectionResult tryConnect(VFlow s, VNode r, String type) {
-        return getModel().tryConnect(s.getModel(), r, type);
+        return getModel().tryConnect(s.getModel(), r, type, "a connection name");
     }
 
     @Override
     public ConnectionResult tryConnect(VNode s, VFlow r, String type) {
-        return getModel().tryConnect(s, r.getModel(), type);
+        return getModel().tryConnect(s, r.getModel(), type, "a connection name");
     }
 
     @Override
     public ConnectionResult tryConnect(VFlow s, VFlow r, String type) {
-        return getModel().tryConnect(s.getModel(), r.getModel(), type);
+        return getModel().tryConnect(s.getModel(), r.getModel(), type, "a connection name");
     }
 
     @Override
     public ConnectionResult connect(VNode s, VNode r, String type) {
-        return getModel().connect(s, r, type);
+        return getModel().connect(s, r, type, "a connection name");
     }
 
     @Override
     public ConnectionResult connect(VFlow s, VNode r, String type) {
-        return getModel().connect(s.getModel(), r, type);
+        return getModel().connect(s.getModel(), r, type, "a connection name");
     }
 
     @Override
     public ConnectionResult connect(VNode s, VFlow r, String type) {
-        return getModel().connect(s, r.getModel(), type);
+        return getModel().connect(s, r.getModel(), type, "a connection name");
     }
 
     @Override
     public ConnectionResult connect(VFlow s, VFlow r, String type) {
-        return getModel().connect(s.getModel(), r.getModel(), type);
+        return getModel().connect(s.getModel(), r.getModel(), type, "a connection name");
     }
 
     @Override

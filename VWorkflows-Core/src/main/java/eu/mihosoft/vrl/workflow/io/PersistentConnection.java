@@ -45,6 +45,16 @@ public class PersistentConnection {
     private String senderId;
     private String receiverId;
     private String type;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
     
     private VisualizationRequest vReq;
 

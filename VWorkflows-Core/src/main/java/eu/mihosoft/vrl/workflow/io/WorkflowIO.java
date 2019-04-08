@@ -379,7 +379,7 @@ public class WorkflowIO {
         for (PersistentConnection c : connections) {
             Connector s = flow.getNodeLookup().getConnectorById(c.getSenderId());
             Connector r = flow.getNodeLookup().getConnectorById(c.getReceiverId());
-            result.add(c.getId(), s, r, c.getVReq());
+            result.add(c.getId(), s, r, c.getVReq(), c.getName());
         }
         
         return result;

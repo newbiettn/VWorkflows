@@ -36,6 +36,7 @@ package eu.mihosoft.vrl.workflow;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.shape.Path;
 
 import java.util.Objects;
 
@@ -46,6 +47,8 @@ import java.util.Objects;
  */
 class ConnectionBase implements Connection {
 
+    private Path connectionPath;
+    private String name;
     private String senderId;
     private String receiverId;
     private String id;
@@ -66,12 +69,18 @@ class ConnectionBase implements Connection {
 //        this.receiverId = receiverId;
 //        this.type = type;
 //    }
-    public ConnectionBase(Connections connections, String id, Connector sender, Connector receiver, String type) {
+    public ConnectionBase(Connections connections,
+                          String id,
+                          Connector sender,
+                          Connector receiver,
+                          String type,
+                          String name) {
         this.connections = connections;
         this.id = id;
         setSender(sender);
         setReceiver(receiver);
         this.type = type;
+        this.name = name;
     }
 
 //    @Override
@@ -105,6 +114,11 @@ class ConnectionBase implements Connection {
         this.receiver = r;
 
         updateConnection();
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -224,6 +238,22 @@ class ConnectionBase implements Connection {
     @Override
     public Connector getSender() {
         return sender;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public Path getConnectionPath() {
+        return this.connectionPath;
+    }
+
+    @Override
+    public void setConnectionPath(Path path) {
+        this.connectionPath = path;
+
     }
 
     /**

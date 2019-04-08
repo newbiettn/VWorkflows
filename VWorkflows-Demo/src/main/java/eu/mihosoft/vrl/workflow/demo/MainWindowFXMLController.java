@@ -363,24 +363,24 @@ public class MainWindowFXMLController implements Initializable {
     private void originalTest(VFlowModel flow) {
         ObservableList<VNode> nodes = flow.getNodes();
         if(nodes.isEmpty()) return;
-        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(3).getInputs()
-                .get(1));
-        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(3));
-        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(1).getInputs()
-                .get(1));
-        flow.connect(nodes.get(5).getOutputs().get(3), nodes.get(7).getInputs()
-                .get(1));
-        flow.connect(nodes.get(7).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(0));
-        flow.connect(nodes.get(8).getOutputs().get(2), nodes.get(9).getInputs()
-                .get(1));
-        flow.connect(nodes.get(3).getOutputs().get(0), nodes.get(6).getInputs()
-                .get(0));
-        flow.connect(nodes.get(6).getOutputs().get(0), nodes.get(0).getInputs()
-                .get(0));
-        flow.connect(nodes.get(0).getOutputs().get(0), nodes.get(9).getInputs()
-                .get(0));
+//        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(3).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(3));
+//        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(1).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(5).getOutputs().get(3), nodes.get(7).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(7).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(8).getOutputs().get(2), nodes.get(9).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(3).getOutputs().get(0), nodes.get(6).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(6).getOutputs().get(0), nodes.get(0).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(0).getOutputs().get(0), nodes.get(9).getInputs()
+//                .get(0));
         Iterator<VNode> it = nodes.iterator();
         while(it.hasNext()) {
             VNode curr = it.next();
@@ -400,26 +400,26 @@ public class MainWindowFXMLController implements Initializable {
     private void additionalEdgeTest(VFlowModel flow) {
         ObservableList<VNode> nodes = flow.getNodes();
         if(nodes.isEmpty()) return;
-        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(3).getInputs()
-                .get(1));
-        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(3));
-        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(1).getInputs()
-                .get(1));
-        flow.connect(nodes.get(5).getOutputs().get(3), nodes.get(7).getInputs()
-                .get(1));
-        flow.connect(nodes.get(7).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(0));
-        flow.connect(nodes.get(8).getOutputs().get(2), nodes.get(9).getInputs()
-                .get(1));
-        flow.connect(nodes.get(3).getOutputs().get(0), nodes.get(6).getInputs()
-                .get(0));
-        flow.connect(nodes.get(6).getOutputs().get(0), nodes.get(0).getInputs()
-                .get(0));
-        flow.connect(nodes.get(0).getOutputs().get(0), nodes.get(9).getInputs()
-                .get(0));
-        flow.connect(nodes.get(2).getOutputs().get(2), nodes.get(8).getInputs()
-                .get(4));
+//        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(3).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(3));
+//        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(1).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(5).getOutputs().get(3), nodes.get(7).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(7).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(8).getOutputs().get(2), nodes.get(9).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(3).getOutputs().get(0), nodes.get(6).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(6).getOutputs().get(0), nodes.get(0).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(0).getOutputs().get(0), nodes.get(9).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(2).getOutputs().get(2), nodes.get(8).getInputs()
+//                .get(4));
         Iterator<VNode> it = nodes.iterator();
         while(it.hasNext()) {
             VNode curr = it.next();
@@ -439,24 +439,24 @@ public class MainWindowFXMLController implements Initializable {
     private void additionalGraphTest(VFlowModel flow) {
         ObservableList<VNode> nodes = flow.getNodes();
         if(nodes.isEmpty()) return;
-        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(3).getInputs()
-                .get(1));
-        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(3));
-        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(1).getInputs()
-                .get(1));
-        flow.connect(nodes.get(8).getOutputs().get(2), nodes.get(9).getInputs()
-                .get(1));
-        flow.connect(nodes.get(3).getOutputs().get(0), nodes.get(6).getInputs()
-                .get(0));
-        flow.connect(nodes.get(6).getOutputs().get(0), nodes.get(0).getInputs()
-                .get(0));
-        flow.connect(nodes.get(0).getOutputs().get(0), nodes.get(9).getInputs()
-                .get(0));
-        flow.connect(nodes.get(2).getOutputs().get(1), nodes.get(4).getInputs()
-                .get(1));
-        flow.connect(nodes.get(4).getOutputs().get(1), nodes.get(7).getInputs()
-                .get(1));
+//        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(3).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(3));
+//        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(1).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(8).getOutputs().get(2), nodes.get(9).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(3).getOutputs().get(0), nodes.get(6).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(6).getOutputs().get(0), nodes.get(0).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(0).getOutputs().get(0), nodes.get(9).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(2).getOutputs().get(1), nodes.get(4).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(4).getOutputs().get(1), nodes.get(7).getInputs()
+//                .get(1));
         Iterator<VNode> it = nodes.iterator();
         while(it.hasNext()) {
             VNode curr = it.next();
@@ -476,26 +476,26 @@ public class MainWindowFXMLController implements Initializable {
     private void triLaneTest(VFlowModel flow) {
         ObservableList<VNode> nodes = flow.getNodes();
         if(nodes.isEmpty()) return;
-        flow.connect(nodes.get(0).getOutputs().get(1), nodes.get(1).getInputs()
-                .get(1));
-        flow.connect(nodes.get(0).getOutputs().get(1), nodes.get(5).getInputs()
-                .get(1));
-        flow.connect(nodes.get(0).getOutputs().get(1), nodes.get(6).getInputs()
-                .get(1));
-        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(2).getInputs()
-                .get(1));
-        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(7).getInputs()
-                .get(1));
-        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(3).getInputs()
-                .get(1));
-        flow.connect(nodes.get(6).getOutputs().get(1), nodes.get(7).getInputs()
-                .get(1));
-        flow.connect(nodes.get(2).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(1));
-        flow.connect(nodes.get(7).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(1));
-        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(1));
+//        flow.connect(nodes.get(0).getOutputs().get(1), nodes.get(1).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(0).getOutputs().get(1), nodes.get(5).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(0).getOutputs().get(1), nodes.get(6).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(2).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(7).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(3).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(6).getOutputs().get(1), nodes.get(7).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(2).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(7).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(1));
         Iterator<VNode> it = nodes.iterator();
         while(it.hasNext()) {
             VNode curr = it.next();
@@ -515,24 +515,24 @@ public class MainWindowFXMLController implements Initializable {
     private void differentSizesTest(VFlowModel flow) {
         ObservableList<VNode> nodes = flow.getNodes();
         if(nodes.isEmpty()) return;
-        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(3).getInputs()
-                .get(1));
-        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(3));
-        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(1).getInputs()
-                .get(1));
-        flow.connect(nodes.get(5).getOutputs().get(3), nodes.get(7).getInputs()
-                .get(1));
-        flow.connect(nodes.get(7).getOutputs().get(1), nodes.get(8).getInputs()
-                .get(0));
-        flow.connect(nodes.get(8).getOutputs().get(2), nodes.get(9).getInputs()
-                .get(1));
-        flow.connect(nodes.get(3).getOutputs().get(0), nodes.get(6).getInputs()
-                .get(0));
-        flow.connect(nodes.get(6).getOutputs().get(0), nodes.get(0).getInputs()
-                .get(0));
-        flow.connect(nodes.get(0).getOutputs().get(0), nodes.get(9).getInputs()
-                .get(0));
+//        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(3).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(3).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(3));
+//        flow.connect(nodes.get(5).getOutputs().get(1), nodes.get(1).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(5).getOutputs().get(3), nodes.get(7).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(7).getOutputs().get(1), nodes.get(8).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(8).getOutputs().get(2), nodes.get(9).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(3).getOutputs().get(0), nodes.get(6).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(6).getOutputs().get(0), nodes.get(0).getInputs()
+//                .get(0));
+//        flow.connect(nodes.get(0).getOutputs().get(0), nodes.get(9).getInputs()
+//                .get(0));
         nodes.get(5).setHeight(nodes.get(5).getHeight() * 1.5);
         nodes.get(5).setWidth(nodes.get(5).getWidth() * 1.5);
         nodes.get(7).setHeight(nodes.get(7).getHeight() * 2);
@@ -556,16 +556,16 @@ public class MainWindowFXMLController implements Initializable {
     private void cycleTest(VFlowModel flow) {
         ObservableList<VNode> nodes = flow.getNodes();
         if(nodes.isEmpty()) return;
-        flow.connect(nodes.get(0).getOutputs().get(1), nodes.get(1).getInputs()
-                .get(1));
-        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(2).getInputs()
-                .get(1));
-        flow.connect(nodes.get(2).getOutputs().get(1), nodes.get(3).getInputs()
-                .get(1));
-        flow.connect(nodes.get(2).getOutputs().get(1), nodes.get(4).getInputs()
-                .get(1));
-        flow.connect(nodes.get(4).getOutputs().get(1), nodes.get(0).getInputs()
-                .get(1));
+//        flow.connect(nodes.get(0).getOutputs().get(1), nodes.get(1).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(1).getOutputs().get(1), nodes.get(2).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(2).getOutputs().get(1), nodes.get(3).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(2).getOutputs().get(1), nodes.get(4).getInputs()
+//                .get(1));
+//        flow.connect(nodes.get(4).getOutputs().get(1), nodes.get(0).getInputs()
+//                .get(1));
         Iterator<VNode> it = nodes.iterator();
         while(it.hasNext()) {
             VNode curr = it.next();
@@ -924,16 +924,16 @@ public class MainWindowFXMLController implements Initializable {
             n.setY((i / 5) * (n.getHeight() + 30));
         }
         ObservableList<VNode> subnodes = node5.getNodes();
-        node5.connect(subnodes.get(0).getOutputs().get(0), subnodes.get(1)
-                .getInputs().get(0));
-        node5.connect(subnodes.get(0).getOutputs().get(0), subnodes.get(2)
-                .getInputs().get(0));
-        node5.connect(subnodes.get(0).getOutputs().get(0), subnodes.get(3)
-                .getInputs().get(0));
-        node5.connect(subnodes.get(1).getOutputs().get(0), subnodes.get(3)
-                .getInputs().get(0));
-        node5.connect(subnodes.get(2).getOutputs().get(0), subnodes.get(3)
-                .getInputs().get(0));
+//        node5.connect(subnodes.get(0).getOutputs().get(0), subnodes.get(1)
+//                .getInputs().get(0));
+//        node5.connect(subnodes.get(0).getOutputs().get(0), subnodes.get(2)
+//                .getInputs().get(0));
+//        node5.connect(subnodes.get(0).getOutputs().get(0), subnodes.get(3)
+//                .getInputs().get(0));
+//        node5.connect(subnodes.get(1).getOutputs().get(0), subnodes.get(3)
+//                .getInputs().get(0));
+//        node5.connect(subnodes.get(2).getOutputs().get(0), subnodes.get(3)
+//                .getInputs().get(0));
     }
     
     @FXML

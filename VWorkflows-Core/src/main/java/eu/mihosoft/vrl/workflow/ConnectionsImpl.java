@@ -88,7 +88,7 @@ class ConnectionsImpl implements Connections {
     }
 
     @Override
-    public Connection add(Connector s, Connector r) {
+    public Connection add(Connector s, Connector r, String name) {
 
         // search id:
         String id = "0";
@@ -99,7 +99,7 @@ class ConnectionsImpl implements Connections {
             id = "" + count;
         }
 
-        Connection c = createConnection(id, s, r);
+        Connection c = createConnection(id, s, r, name);
 
         add(c);
 
@@ -107,8 +107,12 @@ class ConnectionsImpl implements Connections {
     }
 
     @Override
-    public Connection add(String id, Connector s, Connector r, VisualizationRequest vReq) {
-        Connection c = createConnection(id, s, r);
+    public Connection add(String id,
+                          Connector s,
+                          Connector r,
+                          VisualizationRequest vReq,
+                          String name) {
+        Connection c = createConnection(id, s, r, name);
         c.setVisualizationRequest(vReq);
         add(c);
         return c;
@@ -143,7 +147,12 @@ class ConnectionsImpl implements Connections {
     @Override
     public void setConnectionClass(Class<? extends Connection> cls) {
         try {
-            Constructor constructor = cls.getConstructor(Connections.class, String.class, Connector.class, Connector.class, String.class);
+            Constructor constructor = cls.getConstructor(Connections.class,
+                    String.class,
+                    Connector.class,
+                    Connector.class,
+                    String.class,
+                    String.class);
             
         } catch (NoSuchMethodException | SecurityException ex) {
             Logger.getLogger(ConnectionsImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -158,7 +167,7 @@ class ConnectionsImpl implements Connections {
         return connectionClass;
     }
 
-    private Connection createConnection(String id, Connector s, Connector r) {
+    private Connection createConnection(String id, Connector s, Connector r, String name) {
         
         if (s == null) {
             throw new IllegalArgumentException("Sender must not be null.");
@@ -171,9 +180,15 @@ class ConnectionsImpl implements Connections {
         Connection result = null;
 
         try {
-            Constructor constructor = getConnectionClass().getConstructor(Connections.class, String.class, Connector.class, Connector.class, String.class);
+            Constructor constructor = getConnectionClass().getConstructor(
+                    Connections.class,
+                    String.class,
+                    Connector.class,
+                    Connector.class,
+                    String.class,
+                    String.class);
             try {
-                result = (Connection) constructor.newInstance(this, id, s, r, type);
+                result = (Connection) constructor.newInstance(this, id, s, r, type, name);
             } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
                 Logger.getLogger(ConnectionsImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
