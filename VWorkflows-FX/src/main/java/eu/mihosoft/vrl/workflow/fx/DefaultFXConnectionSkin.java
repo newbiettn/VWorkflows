@@ -80,6 +80,7 @@ public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
         initVReqListeners();
         initMouseEventHandler();
         connection.setConnectionPath(connectionPath);
+        connection.setConnectionText(connectionText);
     }
 
     protected void initStyle() {

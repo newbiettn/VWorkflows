@@ -803,6 +803,58 @@ class VFlowImpl implements VFlow {
     }
 
     @Override
+    public final void setSkinFactoriesNewbiettn(SkinFactory... skinFactories) {
+//        removeSkinFactories(getSkinFactories());
+
+        this.getSkinFactories().clear();
+
+        Collection<SkinFactory<? extends ConnectionSkin, ? extends VNodeSkin>> tmpList = new ArrayList<>();
+
+        for (SkinFactory sF : skinFactories) {
+            tmpList.add(sF);
+        }
+
+        this.getSkinFactories().addAll(tmpList);
+
+        if (skinFactories.length > 0) {
+
+            for (VNode n : getNodes()) {
+
+                createNodeSkins(n, skinFactories);
+            }
+            for (Connections cns : getAllConnections().values()) {
+                for (Connection c : cns.getConnections()) {
+                    createConnectionSkins(c, c.getType(), skinFactories);
+                }
+            }
+
+        }
+
+        if (getModel() != null && !getModel().isVisible()) {
+            return;
+        }
+
+        for (VFlow fC : subControllers.values()) {
+
+            Collection<SkinFactory<? extends ConnectionSkin, ? extends VNodeSkin>> childSkinFactories = new ArrayList<>();
+
+            for (SkinFactory<? extends ConnectionSkin, ? extends VNodeSkin> sF : skinFactories) {
+
+                SkinFactory<? extends ConnectionSkin, ? extends VNodeSkin> childNodeSkinFactory = null;
+
+                if (sF != null) {
+                    childNodeSkinFactory = sF.createChild(
+                            getNodeSkin(sF, fC.getModel().getId()));
+                }
+
+                childSkinFactories.add(childNodeSkinFactory);
+            }
+
+            fC.addSkinFactories(childSkinFactories);
+        }
+    }
+
+    @Override
     public void removeSkinFactories(SkinFactory<? extends ConnectionSkin, ? extends VNodeSkin>... skinFactories) {
 //        if (getModel() != null) {
 //            System.out.println(">> remove skinfactories from " + getModel().getId() + ", #sf: " + getSkinFactories().size());

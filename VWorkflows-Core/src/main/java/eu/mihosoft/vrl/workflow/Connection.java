@@ -34,6 +34,7 @@
 package eu.mihosoft.vrl.workflow;
 
 import javafx.scene.shape.Path;
+import javafx.scene.text.Text;
 
 /**
  * This interface defines a connection between two connectors.
@@ -52,6 +53,8 @@ public interface Connection extends Model{
     public String getName();
     public Path getConnectionPath();
     public void setConnectionPath(Path path);
+    public Text getConnectionText();
+    public void setConnectionText(Text connectionText);
     
     public String getId();
     public void setId(String id);

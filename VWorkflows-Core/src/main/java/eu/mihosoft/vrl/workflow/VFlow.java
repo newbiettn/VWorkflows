@@ -386,4 +386,7 @@ public interface VFlow {
     public ObservableList<ThruConnector> getThruInputs();
 
     public ObservableList<ThruConnector> getThruOutputs();
+
+    public void setSkinFactoriesNewbiettn(SkinFactory... skinFactories);
+
 }

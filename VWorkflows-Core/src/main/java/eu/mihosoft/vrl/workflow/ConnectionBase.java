@@ -37,6 +37,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.shape.Path;
+import javafx.scene.text.Text;
 
 import java.util.Objects;
 
@@ -47,6 +48,7 @@ import java.util.Objects;
  */
 class ConnectionBase implements Connection {
 
+    private Text connectionText;
     private Path connectionPath;
     private String name;
     private String senderId;
@@ -254,6 +256,15 @@ class ConnectionBase implements Connection {
     public void setConnectionPath(Path path) {
         this.connectionPath = path;
 
+    }
+    @Override
+    public Text getConnectionText() {
+        return connectionText;
+    }
+
+    @Override
+    public void setConnectionText(Text connectionText) {
+        this.connectionText = connectionText;
     }
 
     /**
