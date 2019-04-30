@@ -804,7 +804,7 @@ class VFlowImpl implements VFlow {
 
     @Override
     public final void setSkinFactoriesNewbiettn(SkinFactory... skinFactories) {
-//        removeSkinFactories(getSkinFactories());
+        removeSkinFactories(getSkinFactories());
 
         this.getSkinFactories().clear();
 

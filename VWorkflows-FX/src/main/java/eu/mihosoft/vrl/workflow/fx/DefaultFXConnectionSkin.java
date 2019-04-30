@@ -126,7 +126,7 @@ public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
                 connection.getSender().getId()));
         setReceiver(getController().getNodeLookup().getConnectorById(
                 connection.getReceiver().getId()));
-        setName("a connection name");
+        setName(connection.getName());
     }
 
     protected void initMouseEventHandler() {

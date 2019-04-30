@@ -308,7 +308,7 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
                 return y;
             }
         };
-        connectionText = new Text(nameProperty.getName());
+        connectionText = new Text(nameProperty.getValue());
         connectionText.setX(200);
         connectionText.setY(200);
         connectionText.xProperty().bind(xBinding);
