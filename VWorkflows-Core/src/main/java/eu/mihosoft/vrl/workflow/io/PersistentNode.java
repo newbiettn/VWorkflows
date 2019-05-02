@@ -71,7 +71,7 @@ public class PersistentNode {
         this.width = width;
         this.height = height;
         this.title = title;
-        this.valueObject = WorkflowIO.toPersistentValueObject(valueObject);
+//        this.valueObject = WorkflowIO.toPersistentValueObject(valueObject);
         this.vReq = vReq;
         this.id = id;
         this.connectors = WorkflowIO.listToSerializableList(connectors);

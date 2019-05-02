@@ -399,7 +399,7 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
     public void add() {
         NodeUtil.addToParent(getParent(), connectionPath);
         NodeUtil.addToParent(getParent(), receiverConnectorUI);
-
+        NodeUtil.addToParent(getParent(), connectionText);
         receiverConnectorUI.toFront();
         connectionPath.toBack();
     }

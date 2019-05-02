@@ -178,6 +178,7 @@ public class WorkflowIO {
                                     c.getSender().getId(),
                                     c.getReceiver().getId(),
                                     c.getType(),
+                                    c.getConnectionText().getText(),
                                     c.getVisualizationRequest()));
                 }
             }

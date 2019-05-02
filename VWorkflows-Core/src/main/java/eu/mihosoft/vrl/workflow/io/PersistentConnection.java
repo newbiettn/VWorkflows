@@ -45,6 +45,7 @@ public class PersistentConnection {
     private String senderId;
     private String receiverId;
     private String type;
+    private String name;
 
     public String getName() {
         return name;
@@ -54,18 +55,18 @@ public class PersistentConnection {
         this.name = name;
     }
 
-    private String name;
-    
+
     private VisualizationRequest vReq;
 
     public PersistentConnection() {
     }
 
-    public PersistentConnection(String id, String senderId, String receiverId, String type, VisualizationRequest vReq) {
+    public PersistentConnection(String id, String senderId, String receiverId, String type, String name, VisualizationRequest vReq) {
         this.id = id;
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.type = type;
+        this.name = name;
         this.vReq = vReq;
     }
     
