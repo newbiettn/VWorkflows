@@ -41,7 +41,7 @@ import java.util.Set;
  *
  * @author Michael Hoffer &lt;info@michaelhoffer.de&gt;
  */
-class IdGeneratorImpl implements IdGenerator {
+public class IdGeneratorImpl implements IdGenerator {
 
     private Set<String> ids = new HashSet<>();
 //    private int lastId = 0;

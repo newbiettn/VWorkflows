@@ -54,7 +54,7 @@ import java.util.logging.Logger;
  *
  * @author Michael Hoffer &lt;info@michaelhoffer.de&gt;
  */
-class ConnectionsImpl implements Connections {
+public class ConnectionsImpl implements Connections {
 
     private String type;
     private Map<String, Connection> connections = new HashMap<>();

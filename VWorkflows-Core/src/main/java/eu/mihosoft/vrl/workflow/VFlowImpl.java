@@ -67,7 +67,7 @@ import java.util.logging.Logger;
  *
  * @author Michael Hoffer &lt;info@michaelhoffer.de&gt;
  */
-class VFlowImpl implements VFlow {
+public class VFlowImpl implements VFlow {
 
     final ObjectProperty<VFlowModel> modelProperty = new SimpleObjectProperty<>();
     private ListChangeListener<VNode> nodesListener;

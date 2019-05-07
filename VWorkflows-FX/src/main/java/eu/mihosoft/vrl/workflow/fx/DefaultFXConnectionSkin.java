@@ -63,10 +63,10 @@ import java.util.logging.Logger;
  */
 public class DefaultFXConnectionSkin extends AbstractFXConnectionSkin {
 
-    private Connection connection;
-    private Node lastNode;
-    private boolean receiverDraggingStarted = false;
-    private MapChangeListener<String, Object> vReqLister;
+    protected  Connection connection;
+    protected Node lastNode;
+    protected boolean receiverDraggingStarted = false;
+    protected MapChangeListener<String, Object> vReqLister;
 
     public DefaultFXConnectionSkin(FXSkinFactory skinFactory,
             Parent parent, Connection connection, VFlow flow, String type) {

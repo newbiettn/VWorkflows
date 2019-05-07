@@ -41,7 +41,7 @@ import javafx.collections.ObservableMap;
  *
  * @author Michael Hoffer &lt;info@michaelhoffer.de&gt;
  */
-interface FlowModel extends Model, VisibleState {
+public interface FlowModel extends Model, VisibleState {
 
     /**
      * Attempts to create the specified connection. This method never creates an

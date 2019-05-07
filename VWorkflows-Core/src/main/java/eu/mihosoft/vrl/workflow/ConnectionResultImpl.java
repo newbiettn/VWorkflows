@@ -40,7 +40,7 @@ package eu.mihosoft.vrl.workflow;
  * @author Michael Hoffer  &lt;info@michaelhoffer.de&gt;
  */
 
-class ConnectionResultImpl implements ConnectionResult {
+public class ConnectionResultImpl implements ConnectionResult {
     private final CompatibilityResult status;
     private Connection connection;
 

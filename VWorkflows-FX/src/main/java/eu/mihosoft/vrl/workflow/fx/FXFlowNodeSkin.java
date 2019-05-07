@@ -75,38 +75,38 @@ import java.util.stream.Collectors;
 public class FXFlowNodeSkin
         implements FXSkin<VNode, Window>, VNodeSkin<VNode> {
 
-    private final ObjectProperty<VNode> modelProperty = new SimpleObjectProperty<>();
-    private FlowNodeWindow node;
-    private final ObjectProperty<Parent> parentProperty = new SimpleObjectProperty<>();
-    private ChangeListener<String> modelTitleListener;
-    private ChangeListener<Number> modelXListener;
-    private ChangeListener<Number> modelYListener;
-    private ChangeListener<Number> modelWidthListener;
-    private ChangeListener<Number> modelHeightListener;
-    private ChangeListener<Number> nodeXListener;
-    private ChangeListener<Number> nodeYListener;
-    private ChangeListener<Number> nodeWidthListener;
-    private ChangeListener<Number> nodeHeightListener;
+    protected final ObjectProperty<VNode> modelProperty = new SimpleObjectProperty<>();
+    protected FlowNodeWindow node;
+    protected final ObjectProperty<Parent> parentProperty = new SimpleObjectProperty<>();
+    protected ChangeListener<String> modelTitleListener;
+    protected ChangeListener<Number> modelXListener;
+    protected ChangeListener<Number> modelYListener;
+    protected ChangeListener<Number> modelWidthListener;
+    protected ChangeListener<Number> modelHeightListener;
+    protected ChangeListener<Number> nodeXListener;
+    protected ChangeListener<Number> nodeYListener;
+    protected ChangeListener<Number> nodeWidthListener;
+    protected ChangeListener<Number> nodeHeightListener;
 
-    private FXConnectionSkin newConnectionSkin;
-    private MouseEvent newConnectionPressEvent;
-    private boolean removeSkinOnly = false;
-    VFlow controller;
-    Map<Connector, ConnectorShape> connectors = new HashMap<>();
-    List<List<ConnectorShape>> shapeLists = new ArrayList<>();
-    private final Map<Connector, Integer> connectorToIndexMap = new HashMap<>();
-    private final FXSkinFactory skinFactory;
-    private final List<Double> connectorSizes = new ArrayList<>();
+    protected FXConnectionSkin newConnectionSkin;
+    protected MouseEvent newConnectionPressEvent;
+    protected boolean removeSkinOnly = false;
+    protected VFlow controller;
+    protected Map<Connector, ConnectorShape> connectors = new HashMap<>();
+    protected List<List<ConnectorShape>> shapeLists = new ArrayList<>();
+    protected final Map<Connector, Integer> connectorToIndexMap = new HashMap<>();
+    protected final FXSkinFactory skinFactory;
+    protected final List<Double> connectorSizes = new ArrayList<>();
 
-    private final List<Connector> connectorList = new ArrayList<>();
-    private final IntegerProperty numConnectorsProperty = new SimpleIntegerProperty();
+    protected final List<Connector> connectorList = new ArrayList<>();
+    protected final IntegerProperty numConnectorsProperty = new SimpleIntegerProperty();
 
-    private MapChangeListener<String, Object> vReqLister;
+    protected MapChangeListener<String, Object> vReqLister;
 
-    private static final int TOP = 0;
-    private static final int RIGHT = 1;
-    private static final int BOTTOM = 2;
-    private static final int LEFT = 3;
+    protected static final int TOP = 0;
+    protected static final int RIGHT = 1;
+    protected static final int BOTTOM = 2;
+    protected static final int LEFT = 3;
 
     public FXFlowNodeSkin(FXSkinFactory skinFactory,
             Parent parent, VNode model, VFlow controller) {
@@ -677,7 +677,7 @@ public class FXFlowNodeSkin
                 getSkinFactory(), connector, 20);
     }
 
-    private void computeConnectorSizes() {
+    protected void computeConnectorSizes() {
 
         double inset = 120;
         double minInset = 60;
@@ -701,7 +701,7 @@ public class FXFlowNodeSkin
         }
     }
 
-    private double computeConnectorSize(double inset, int numConnectors) {
+    protected double computeConnectorSize(double inset, int numConnectors) {
 
         if (numConnectors == 0) {
             return 0;
@@ -727,7 +727,7 @@ public class FXFlowNodeSkin
         return connectorHeight;
     }
 
-    private double getMinConnectorSize() {
+    protected double getMinConnectorSize() {
         Optional<Double> minSize = connectorSizes.stream().min(Double::compare);
 
         if (minSize.isPresent()) {
@@ -737,7 +737,7 @@ public class FXFlowNodeSkin
         return 0;
     }
 
-    private List<Segment> nodeToSegments(VNode n) {
+    protected List<Segment> nodeToSegments(VNode n) {
         List<Segment> result = new ArrayList<>();
 
         Vector2D np0 = new Vector2D(n.getX(), n.getY());
@@ -760,7 +760,7 @@ public class FXFlowNodeSkin
         return result;
     }
 
-    private Optional<Integer> getIntersectionIndex(
+    protected Optional<Integer> getIntersectionIndex(
             Segment connectionSegment, List<Segment> edges) {
 
         SubLine connectionSegmentL = new SubLine(connectionSegment);
@@ -778,13 +778,13 @@ public class FXFlowNodeSkin
         return Optional.empty();
     }
 
-    private Vector2D getNodeCenter(VNode n) {
+    protected Vector2D getNodeCenter(VNode n) {
         return new Vector2D(
                 n.getX() + n.getWidth() * 0.5,
                 n.getY() + n.getHeight() * 0.5);
     }
 
-    private Segment getConnectionEdge(VNode sender, VNode receiver) {
+    protected Segment getConnectionEdge(VNode sender, VNode receiver) {
         Vector2D senderC = getNodeCenter(sender);
         Vector2D receiverC = getNodeCenter(receiver);
 
@@ -793,7 +793,7 @@ public class FXFlowNodeSkin
         return new Segment(senderC, receiverC, l);
     }
 
-    private Pair<Integer, Integer> getConnectorEdges(Connection c) {
+    protected Pair<Integer, Integer> getConnectorEdges(Connection c) {
 
         VNode senderN = c.getSender().getNode();
         List<Segment> n1Edges = nodeToSegments(senderN);
@@ -816,7 +816,7 @@ public class FXFlowNodeSkin
         return new Pair<>(senderIntersection.get(), receiverIntersection.get());
     }
 
-    private void adjustConnectorSize() {
+    protected void adjustConnectorSize() {
 
         double maxConnectorSize = Double.MAX_VALUE;
 
@@ -841,7 +841,7 @@ public class FXFlowNodeSkin
         }
     }
 
-    private void removeConnector(Connector connector) {
+    protected void removeConnector(Connector connector) {
         connectorList.remove(connector);
         ConnectorShape connectorShape = connectors.remove(connector);
 
@@ -905,7 +905,7 @@ public class FXFlowNodeSkin
         parentProperty.set(parent);
     }
 
-    Parent getParent() {
+    protected Parent getParent() {
         return parentProperty.get();
     }
 
@@ -918,7 +918,7 @@ public class FXFlowNodeSkin
         NodeUtil.addToParent(getParent(), node);
     }
 
-    private void removeListeners(VNode flowNode) {
+    protected void removeListeners(VNode flowNode) {
         flowNode.titleProperty().removeListener(modelTitleListener);
         flowNode.xProperty().removeListener(modelXListener);
         flowNode.yProperty().removeListener(modelYListener);
@@ -933,7 +933,7 @@ public class FXFlowNodeSkin
         flowNode.getVisualizationRequest().addListener(vReqLister);
     }
 
-    private void initListeners() {
+    protected void initListeners() {
         modelTitleListener = (ov, oldValue, newValue) -> {
             node.setTitle(newValue);
         };
@@ -978,7 +978,7 @@ public class FXFlowNodeSkin
                 });
     }
 
-    private void registerListeners(VNode flowNode) {
+    protected void registerListeners(VNode flowNode) {
 
         initListeners();
 

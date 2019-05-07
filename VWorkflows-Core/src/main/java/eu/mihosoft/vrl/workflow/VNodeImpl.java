@@ -57,7 +57,7 @@ import java.util.Map;
  *
  * @author Michael Hoffer &lt;info@michaelhoffer.de&gt;
  */
-class VNodeImpl implements VNode {
+public class VNodeImpl implements VNode {
 
     private final ObservableList<Connector> connectors
             = FXCollections.observableArrayList();
@@ -376,35 +376,35 @@ class VNodeImpl implements VNode {
         return addConnector(this, c);
     }
 
-    Connector addInput(VNode node, String type) {
+    public Connector addInput(VNode node, String type) {
         Connector c = new ConnectorImpl(
                 node, type, null, true);
         connectors.add(c);
         return c;
     }
 
-    Connector addOutput(VNode node, String type) {
+    public Connector addOutput(VNode node, String type) {
         Connector c = new ConnectorImpl(
                 node, type, null, false);
         connectors.add(c);
         return c;
     }
 
-    ThruConnector addThruInput(VNode node, String type, VNode innerNode, Connector innerConnector) {
+    public ThruConnector addThruInput(VNode node, String type, VNode innerNode, Connector innerConnector) {
         ThruConnector c = new ThruConnectorImpl(
                 node, type, null, true, innerNode, innerConnector);
         connectors.add(c);
         return c;
     }
 
-    ThruConnector addThruOutput(VNode node, String type, VNode innerNode, Connector innerConnector) {
+    public ThruConnector addThruOutput(VNode node, String type, VNode innerNode, Connector innerConnector) {
         ThruConnector c = new ThruConnectorImpl(
                 node, type, null, false, innerNode, innerConnector);
         connectors.add(c);
         return c;
     }
 
-    Connector addConnector(VNode node, Connector c) {
+    public Connector addConnector(VNode node, Connector c) {
         String localId = c.getLocalId();
 
         if (connectorIdGenerator.getIds().contains(localId)) {

@@ -437,7 +437,7 @@ public final class FlowNodeWindow extends Window {
         }
     }
 
-    void onRemovedFromSceneGraph() {
+    public void onRemovedFromSceneGraph() {
         nodeSkinProperty().get().getModel().selectedProperty().
                 removeListener(selectionListener);
     }
@@ -572,7 +572,7 @@ public final class FlowNodeWindow extends Window {
                                     if (n.getId().equals(nodeId)) {
                                         ((Pane)canvas.getContent()).getChildren().clear();
                                         VFlow flow = (VFlow) rootFlow.getFlowById(n.getId());
-                                        flow.addSkinFactories(new FXValueSkinFactory(null));
+                                        flow.addSkinFactories(new FXSkinFactory(null));
                                     }
                                 }
                             }
