@@ -409,7 +409,7 @@ public abstract class AbstractFXConnectionSkin implements FXConnectionSkin {
         NodeUtil.removeFromParent(connectionPath);
         NodeUtil.removeFromParent(receiverConnectorUI);
         NodeUtil.removeFromParent(connectionText);
-        NodeUtil.removeFromParent(invisibleCurve);
+//        NodeUtil.removeFromParent(invisibleCurve);
     }
 
     @Override

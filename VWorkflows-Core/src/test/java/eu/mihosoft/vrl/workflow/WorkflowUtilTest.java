@@ -156,45 +156,45 @@ public class WorkflowUtilTest {
 
         }
     }
-    
+
     @Test
     public void pathInLayerTest() {
         createPathInLayerTest(3, 6);
         createPathInLayerTest(1, 1);
         createPathInLayerTest(32, 32);
         createPathInLayerTest(2, 100);
-        
+
 
     }
-    
+
     private void createPathInLayerTest(int pathLength, int numNodes) {
-        
+
         if (numNodes == 0 || pathLength == 0) {
             return;
         }
-        
+
         if (numNodes < pathLength) {
             throw new IllegalArgumentException(
                     "path length must be less than number of nodes!");
         }
-        
+
         VFlow flow = FlowFactory.newFlow();
-        
+
         for(int i = 0; i < numNodes;i++) {
             VNode n = flow.newNode();
             n.setMainOutput(n.addOutput("mytype"));
             n.setMainInput(n.addInput("mytype"));
         }
-        
+
         for(int i = 0; i < pathLength-1;i++) {
             VNode sender = flow.getNodes().get(i);
             VNode receiver = flow.getNodes().get(i+1);
             flow.connect(sender, receiver, "mytype");
         }
-        
+
         List<VNode> path= WorkflowUtil.getPathInLayerFromRoot(
                 flow.getNodes().get(0), "mytype");
-        
+
         Assert.assertTrue("Expected number of nodes in path = "+pathLength
                 +", got " + path.size(), path.size()==pathLength);
     }

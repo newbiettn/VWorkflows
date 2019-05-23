@@ -610,4 +610,15 @@ class VFlowModelImpl implements VFlowModel {
 
         return root;
     }
+
+
+    @Override
+    public void setController(Object c){
+        this.node.setController(c);
+    }
+
+    @Override
+    public Object getController(){
+        return this.node.getController();
+    }
 }

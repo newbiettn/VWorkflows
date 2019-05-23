@@ -59,6 +59,7 @@ import java.util.Map;
  */
 public class VNodeImpl implements VNode {
 
+    private Object controller;
     private final ObservableList<Connector> connectors
             = FXCollections.observableArrayList();
     private ObservableList<Connector> inputs
@@ -600,5 +601,17 @@ public class VNodeImpl implements VNode {
         return root;
 
     }
+
+    @Override
+    public void setController(Object c){
+        this.controller = c;
+    }
+
+    @Override
+    public Object getController(){
+        return controller;
+    }
+
+
 
 }

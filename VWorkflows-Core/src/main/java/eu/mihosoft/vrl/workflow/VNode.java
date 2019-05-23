@@ -163,5 +163,9 @@ public interface VNode extends Model, Selectable {
      * @return root element
      */
     public FlowModel getRoot();
+
+    public void setController(Object c);
+
+    public Object getController();
     
 }
