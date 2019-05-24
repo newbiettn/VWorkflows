@@ -49,7 +49,6 @@ import javafx.scene.CacheHint;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.SkinBase;
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
@@ -306,13 +305,16 @@ public class DefaultWindowSkin extends SkinBase<Window> {
                                         new CornerRadii(3),
                                         new BorderWidths(2))));
                         if (control.isSelectionEffectEnabled()) {
-                            ColorAdjust effect
-                            = new ColorAdjust(-0.25, 0.2, 0.8, 0);
+                            System.out.println("BBBBBBBBBBBB");
+                            control.getStyleClass().add("selected-window");
+//                            ColorAdjust effect
+//                            = new ColorAdjust(-0.25, 0.2, 0.8, 0);
 //                            Glow glow = new Glow(0.5);
 //                            glow.setInput(effect);
-                            control.setEffect(effect);
+//                            control.setEffect(effect);
                         }
                     } else {
+                        control.getStyleClass().remove("selected-window");
                         control.setBorder(prevBorder);
                         control.setEffect(null);
                     }
